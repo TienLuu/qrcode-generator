@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Page</title>
+    <!-- Sử dụng CDN cho thư viện QRCode.js -->
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+
+<body>
+    <div id="qrcode"></div>
+
+    <script>
+        // Đường dẫn đến trang trung gian
+        var intermediatePageUrl = "/app.html";
+
+        // Tạo mã QR code với đường dẫn đến trang trung gian
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: intermediatePageUrl,
+            width: 300,  // Điều chỉnh kích thước QR code theo nhu cầu
+            height: 300,
+        });
+    </script>
+</body>
+
+</html>

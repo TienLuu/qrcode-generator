@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+</head>
+
+<body>
+    <script>
+        // Kiểm tra user agent để xác định hệ điều hành
+        var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        // Đường dẫn ứng dụng tương ứng với từng hệ điều hành
+        var redirectUrl = isIOS ? "https://apps.apple.com/app/id6472076404" : "https://play.google.com/store/apps/details?id=com.bixso.xeoi&pli=1";
+
+        // Chuyển hướng người dùng đến đúng cửa hàng ứng dụng
+        window.location.href = redirectUrl;
+    </script>
+</body>
+
+</html>
