@@ -16,7 +16,7 @@
 
         console.log();
         // Đường dẫn đến trang trung gian
-        var intermediatePageUrl = `${window.location.hostname}/app.html`;
+        var intermediatePageUrl = `https://${window.location.hostname}/app.html`;
 
         // Tạo mã QR code với đường dẫn đến trang trung gian
         var qrcode = new QRCode(document.getElementById("qrcode"), {
