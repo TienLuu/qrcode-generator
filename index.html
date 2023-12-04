@@ -7,6 +7,16 @@
     <title>App Page</title>
     <!-- Sử dụng CDN cho thư viện QRCode.js -->
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <style>
+        /* Thêm CSS để đảm bảo hiển thị chính xác của canvas */
+        #qrcode canvas {
+            display: block !important;
+        }
+
+        #qrcode img {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,16 +24,34 @@
 
     <script>
 
-        console.log();
         // Đường dẫn đến trang trung gian
         var intermediatePageUrl = `https://${window.location.hostname}/app.html`;
 
         // Tạo mã QR code với đường dẫn đến trang trung gian
         var qrcode = new QRCode(document.getElementById("qrcode"), {
             text: intermediatePageUrl,
-            width: 300,  // Điều chỉnh kích thước QR code theo nhu cầu
-            height: 300,
+            width: 150,  // Điều chỉnh kích thước QR code theo nhu cầu
+            height: 150,
         });
+
+        // Đường dẫn đến hình ảnh logo
+        var logoUrl = "./assets/logos/xeoi-logo.jpg";
+
+        // Chèn hình ảnh logo vào mã QR code
+        var logoImage = new Image();
+        logoImage.src = logoUrl;
+        logoImage.onload = function () {
+            var canvas = document.querySelector("#qrcode canvas");
+            var ctx = canvas.getContext("2d");
+
+            // Điều chỉnh vị trí và kích thước logo trên mã QR code
+            var logoSize = 60;
+            var x = (canvas.width - logoSize) / 2;
+            var y = (canvas.height - logoSize) / 2;
+
+            // Chèn logo vào canvas
+            ctx.drawImage(logoImage, x, y, logoSize, logoSize);
+        };
     </script>
 </body>
 
